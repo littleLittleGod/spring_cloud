@@ -19,7 +19,6 @@
 
         <!--docker config-->
         <docker.repo>registry2.io:5000</docker.repo>
-        <docker.image.prefix>demo</docker.image.prefix>
     </properties>
 
     <dependencyManagement>
@@ -45,7 +44,11 @@
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>0.4.3</version>
                 <configuration>
-                    <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
+                    <imageName>${docker.repo}/${project.artifactId}</imageName>
+			        <imageTags>
+			          <imageTag>${project.version}</imageTag>
+			          <imageTag>latest</imageTag>
+			        </imageTags>
                     <baseImage>java:8</baseImage>
                     <entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
                     <resources>
