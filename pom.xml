@@ -18,7 +18,7 @@
         <java.version>1.8</java.version>
 
         <!--docker config-->
-        <docker.repo>registry2.io:5000</docker.repo>
+        <docker.repo>172.19.1.109:5000</docker.repo>
     </properties>
 
     <dependencyManagement>
