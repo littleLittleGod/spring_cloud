@@ -45,14 +45,14 @@
                 <executions>
                   <execution>
                     <id>image-build</id>
-                    <phase>package</phase>
+                    <phase>install</phase>
                     <goals>
                       <goal>build</goal>
                     </goals>
                   </execution>
                   <execution>
                     <id>image-tag</id>
-                    <phase>package</phase>
+                    <phase>install</phase>
                     <goals>
                       <goal>tag</goal>
                     </goals>
@@ -63,7 +63,7 @@
                   </execution>
                   <execution>
                     <id>image-push</id>
-                    <phase>package</phase>
+                    <phase>install</phase>
                     <goals>
                       <goal>push</goal>
                     </goals>
