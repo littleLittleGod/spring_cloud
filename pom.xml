@@ -42,36 +42,6 @@
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>0.4.3</version>
-                <executions>
-                  <execution>
-                    <id>image-build</id>
-                    <phase>install</phase>
-                    <goals>
-                      <goal>build</goal>
-                    </goals>
-                  </execution>
-                  <execution>
-                    <id>image-tag</id>
-                    <phase>install</phase>
-                    <goals>
-                      <goal>tag</goal>
-                    </goals>
-                    <configuration>
-                      <image>${docker.image.prefix}/${project.artifactId}</image>
-                      <newName>${docker.repo}/${docker.image.prefix}/${project.artifactId}</newName>
-                    </configuration>
-                  </execution>
-                  <execution>
-                    <id>image-push</id>
-                    <phase>install</phase>
-                    <goals>
-                      <goal>push</goal>
-                    </goals>
-                    <configuration>
-                     <imageName>${docker.repo}/${docker.image.prefix}/${project.artifactId}</imageName>
-                    </configuration>
-                  </execution>
-                </executions>
                 <configuration>
                     <forceTags>true</forceTags>
                     <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
@@ -88,6 +58,9 @@
                             <include>${project.build.finalName}.jar</include>
                         </resource>
                     </resources>
+                    <image>${docker.image.prefix}/${project.artifactId}</image>
+                    <newName>${docker.repo}/${docker.image.prefix}/${project.artifactId}</newName>
+                    <imageName>${docker.repo}/${docker.image.prefix}/${project.artifactId}</imageName>
                 </configuration>
             </plugin>
         </plugins>
